@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+body {
+    background-color: rgb(237, 232, 227);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%, -0%);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 10px 20px;
+    text-align: center;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+header ion-icon {
+    background-color: white;
+    padding: 5px;
+    border-radius: 50%;
+    font-size: 25px;
+}
+header ion-icon:hover{
+    background-color:#b22222;
+    cursor: pointer;
+}
+section {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.asnwer-btn {
+    width: 500px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.2)  ;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+.asnwer-btn:hover {
+    background-color: black;
+    color: #fff;
+}
+footer {
+    width: 100%;
+    position: absolute;
+    bottom:0;
+    left: 0;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 10px 20px;
+    text-align: center;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+footer span {
+    width: 200px;
+    height: 10px;
+    background-color: green;
+    border-radius: 50px;
+}
+footer button {
+    background-color: #747475;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+footer button:hover {
+    background-color: #747475e3;
+}
