@@ -83,10 +83,11 @@ footer {
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 footer span {
-    width: 200px;
+    width: 0px;
     height: 10px;
     background-color: green;
     border-radius: 50px;
+    transition: all .6s ease-in-out;
 }
 footer button {
     background-color: #747475;
@@ -104,6 +105,9 @@ footer button:hover {
     background-color: green;
     color: #e5e5e5;
 }
+.correct:hover {
+    background-color:green !important;
+}
 .notcorrect {
     background-color: red;
 }
@@ -112,4 +116,50 @@ h2 {
 }
 button:disabled {
     cursor: no-drop;
+}.btns{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.notes {
+    position: absolute;
+    z-index: 100;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: green;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    height: 100%;
+    border-radius: 20px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    animation: result .5s ease-in-out;
+    display: none;
+}
+.note {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.note ion-icon {
+    font-size: 200px;
+}
+.note p {
+    font-size: 50px;
+}
+@keyframes result {
+    from {
+        opacity: 0;
+        scale: .5;
+    }
+    to {
+        opacity: 1;
+        scale: 1;
+    }
 }

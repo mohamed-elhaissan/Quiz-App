@@ -113,62 +113,80 @@ function quit() {
 function startquiz() {
     currentindex = 0;
     currentscore = 0;
-    showQuestion();
+    showQuestion(currentindex);
 }
 
-startquiz();
 
 // moving  to other question 
-continueBtn.addEventListener('click',function(){
-    if(currentindex<quizQuestions.length){
+continueBtn.addEventListener('click', function () {
+    if (currentindex < quizQuestions.length) {
         currentindex++;
-        showQuestion();
+        showQuestion(currentindex);
     }
     else {
-        alert('game is done');
+        const p = document.querySelector('.note p')
+        const icon = document.querySelector('.note ion-icon')
+        const container = document.querySelector('.notes');
+        p.textContent = `Your score is ${currentscore} out of ${quizQuestions.length}`;
+        container.style.display = 'block';
     }
 
 });
 
-const asnwerBtns = document.querySelectorAll('.asnwer-btn');
 // showing question one by one and add the dataset to the correct answer
-function showQuestion() {
-    myqesution.innerHTML = quizQuestions[currentindex].question;
+const asnwerBtns = document.querySelectorAll('.asnwer-btn');
+function showQuestion(aralenght) {
+    myqesution.innerHTML = quizQuestions[aralenght].question;
     resetBtns();
-    let arrayLenght = quizQuestions[currentindex].options.length
+    let arrayLenght = quizQuestions[aralenght].options.length
     for (let index = 0; index < arrayLenght; index++) {
-        let btn = document.createElement('button');
-        btn.classList.add('asnwer-btn');
-        btn.textContent = quizQuestions[currentindex].options[index];
-        if (quizQuestions[currentindex].correctAnswer == index) {
-            btn.setAttribute('correct','true');
+        let button = document.createElement('button');
+        button.classList.add('asnwer-btn');
+        button.textContent = quizQuestions[aralenght].options[index];
+        if (quizQuestions[aralenght].correctAnswer == index) {
+            button.setAttribute('correct', 'true');
         }
-        // disabled the button when the user click on a button if its correct or not !
-        document.querySelector('.btns').appendChild(btn);
-        btn.addEventListener('click',()=>{
-            if(btn.getAttribute('correct') == 'true'){
-                currentscore++;
-                btn.classList.add('correct');
-            }
-            else {
-                btn.classList.add('notcorrect');
-            }
-            Array.from(asnwerBtns).forEach((element)=>{
-                if (element.getAttribute('correct')==='true') {
-                    element.classList.add('correct');
-                }
-                element.disabled = true;
-            })
-        })
-        
-    }
+        document.querySelector('.btns').appendChild(button);
+        // button.addEventListener('click', function (e) {
+        //     const sleected = e.target;
+        //     if (sleected.hasAttribute('correct')) {
+        //         currentscore++;
+        //         console.log(currentscore);
+        //         sleected.classList.add('correct');
+        //     }
+        //     else {
+        //         sleected.classList.add('notcorrect');
+        //     }
 
+        // });
+    }
+    
 }
 
 
 // when the user click on continu button here the function gonna delete the old buttons and the showquestion functon gonna create another new button
-function resetBtns(){
+function resetBtns() {
     while (document.querySelector('.btns').firstChild) {
         document.querySelector('.btns').removeChild(document.querySelector('.btns').firstChild);
     }
 }
+const span = document.querySelector('.span');
+window.addEventListener('click',function(e){
+    if(e.target.classList.contains('asnwer-btn')){
+        if(e.target.hasAttribute('correct')){
+        e.target.classList.add('correct');
+        currentscore++;
+            }else {
+                e.target.classList.add('incorrect');
+            }
+            asnwerBtns.forEach(element => {
+                element.disabled = true;
+            }); 
+        currentindex++;
+        setTimeout(()=>{
+            showQuestion(currentindex)
+        },1400)
+    }
+    
+})
+startquiz();
