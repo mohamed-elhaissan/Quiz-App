@@ -48,7 +48,9 @@ section {
     justify-content: center;
     align-items: center;
 }
+
 .asnwer-btn {
+    margin: 10px 0px;
     width: 500px;
     padding: 10px;
     font-size: 16px;
@@ -57,9 +59,9 @@ section {
     cursor: pointer;
     transition: all .3s ease;
 }
-.asnwer-btn:hover {
-    background-color: black;
-    color: #fff;
+.asnwer-btn:hover:not([disabled]) {
+    background-color: #e5e5e5;
+    color: #000;
 }
 footer {
     width: 100%;
@@ -97,4 +99,17 @@ footer button {
 }
 footer button:hover {
     background-color: #747475e3;
+}
+.correct {
+    background-color: green;
+    color: #e5e5e5;
+}
+.notcorrect {
+    background-color: red;
+}
+h2 {
+    text-align: center;
+}
+button:disabled {
+    cursor: no-drop;
 }
